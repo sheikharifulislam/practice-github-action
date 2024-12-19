@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 app.get("/health", (req, res) => {
-    res.status(200).json({
+    res.status(300).json({
         success: true,
     });
 });
