@@ -1,14 +1,8 @@
-const express = require("express");
+const http = require("http");
+const app = require("./app");
 
-const app = express();
-
-app.get("/health", (req, res) => {
-    res.status(200).json({
-        success: true,
-    });
-});
-
+const server = http.createServer(app);
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
