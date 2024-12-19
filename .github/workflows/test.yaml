@@ -19,8 +19,6 @@ jobs:
               uses: actions/setup-node@v2
               with:
                   node-version: 20.x
-                  cache: "pnpm" # Caches pnpm dependencies
-
             # Step 3: Install pnpm globally
             - name: Install pnpm
               run: npm install -g pnpm
