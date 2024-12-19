@@ -10,17 +10,29 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
+            # Step 1: Checkout repository
             - name: Checkout repository
               uses: actions/checkout@v4
-            - name: Setup Node.js and pnpm
+
+            # Step 2: Setup Node.js and enable pnpm caching
+            - name: Setup Node.js and enable pnpm caching
               uses: actions/setup-node@v2
               with:
                   node-version: 20.x
-                  cache: "pnpm"
+                  cache: "pnpm" # Caches pnpm dependencies
+
+            # Step 3: Install pnpm globally
             - name: Install pnpm
               run: npm install -g pnpm
+
+            # Step 4: Install dependencies using pnpm
             - name: Install Dependencies
               run: pnpm install
+
+            # Step 5: Run tests
             - name: Run tests
-              run: pnpm run tests
-            - run: echo "Successfully Complete All test"
+              run: pnpm run test # Ensure "test" is the correct script in package.json
+
+            # Step 6: Echo success message
+            - name: Display Success Message
+              run: echo "Successfully completed all tests"
