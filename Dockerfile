@@ -2,7 +2,7 @@ FROM node:latest
 
 WORKDIR /apps
 
-COPY package.json pnpm.look.yaml ./
+COPY package.json pnpm-lock.yaml ./
 
 RUN npm install -g pnpm
 RUN pnpm install
