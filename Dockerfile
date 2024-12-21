@@ -1,8 +1,8 @@
-FROM node:late
+FROM node:latest
 
 WORKDIR /apps
 
-COPY package.json package.look.yaml ./
+COPY package.json pnpm.look.yaml ./
 
 RUN npm install -g pnpm
 RUN pnpm install
